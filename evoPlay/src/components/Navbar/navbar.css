@@ -1,0 +1,25 @@
+.nav-link:hover {
+  color: blue !important;
+}
+
+.nav-link:active {
+  color: blue !important;
+}
+
+.navbar-brand {
+  margin-left: 50px;
+}
+
+ul {
+  position: absolute;
+  right: 0;
+}
+
+#red {
+  color: blue;
+}
+
+.FORMa {
+  position: absolute;
+  right: 20%;
+}
