@@ -1,78 +1,71 @@
-import React, { useEffect } from "react";
 import "./navbar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas";
 const NavBar: React.FC = () => {
-  useEffect(() => {
-    const navbarToggler = document.querySelector(".navbar-toggler");
-    const navbarCollapse = document.querySelector(".navbar-collapse");
-
-    const toggleNavbar = () => {
-      navbarCollapse?.classList.toggle("show");
-    };
-
-    navbarToggler?.addEventListener("click", toggleNavbar);
-
-    return () => {
-      navbarToggler?.removeEventListener("click", toggleNavbar);
-    };
-  }, []);
-
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="#">
-        EVOPLAY
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              ABOUT US
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link active" id="red" href="#">
-              GAMES
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              PARTNERSHIPS
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              NEWS & EVENTS
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              CONTACT US
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              JACKPOT
-            </a>
-          </li>
-          <li>
-            <button>aaa</button>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <>
+      {["lg"].map((expand) => (
+        <Navbar
+          collapseOnSelect
+          key={expand}
+          expand={expand}
+          className="bg-body-tertiary mb-4"
+        >
+          <Container>
+            <Navbar.Brand href="#">
+              <img
+                src="https://evoplay.games/wp-content/themes/evoplay/assets/img/logo.svg"
+                alt=""
+              />
+            </Navbar.Brand>
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton></Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Nav.Link href="#action1">ABOUT US</Nav.Link>
+                  <NavDropdown
+                    title="GAMES"
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  >
+                    <NavDropdown.Item href="#action3">
+                      Video slots
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action3">
+                      Instant games
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action3">
+                      Classic games
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action3">
+                      Table games
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action3">
+                      Bonus buy games
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action3">
+                      Jackpot games
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                  <Nav.Link href="#action2">PARTNERSHIPS</Nav.Link>
+                  <Nav.Link href="#action2">NEW & EVENTS</Nav.Link>
+                  <Nav.Link href="#action2">CONTACT US</Nav.Link>
+                </Nav>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+          </Container>
+        </Navbar>
+      ))}
+    </>
   );
 };
 

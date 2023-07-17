@@ -6,20 +6,17 @@
   color: blue !important;
 }
 
-.navbar-brand {
-  margin-left: 50px;
+.navbar {
+  height: 87px !important;
+  font-size: 18px;
+  box-shadow: 0px 0.5px 10px rgba(0, 0, 0, 0.1) !important;
+  background-color: white !important;
 }
 
-ul {
-  position: absolute;
+/* ul {
   right: 0;
-}
+} */
 
-#red {
-  color: blue;
-}
-
-.FORMa {
-  position: absolute;
-  right: 20%;
+.navbar-light .navbar-toggler-icon {
+  background-image: var(--mdb-navbar-toggler-icon-bg);
 }
