@@ -1,14 +1,38 @@
+.btn-secondary {
+  background-color: black !important;
+  color: white !important;
+}
+
+.btn-secondary:hover {
+  border: 2px solid #0099fa !important;
+  color: #0099fa !important;
+  transition: 0.3s ease-in;
+}
+
 .grid-row {
   margin-bottom: 10px;
+  border-radius: 12px;
+}
+
+img {
+  border-radius: 12px;
 }
 
 .image-container {
   position: relative;
   overflow: hidden;
+  margin: 5px;
+  border-radius: 12px;
+  transition: 0.3s ease-in;
 }
 
 .image-container:hover {
   transform: scale(1.05);
+}
+
+.image-container:hover img {
+  transform: scale(1);
+  filter: blur(3px);
 }
 
 .overlay {
@@ -32,42 +56,29 @@
 }
 
 .overlay:hover {
-  opacity: 2;
+  opacity: 1;
 }
 
 .overlay button {
   margin-top: 5px;
 }
 
-.image-container {
-  border-radius: 5px;
-}
-
 .image-container:hover img {
-  transform: scale(1);
-  filter: blur(2px);
-}
-
-.btn {
-  width: 200px;
-}
-
-.btn-secondary {
-  background-color: black !important;
-  color: white !important;
+  transform: scale(1.15);
 }
 
 .grid-row {
-  margin-bottom: 10px;
+  margin: 0px;
 }
 
-@media (min-width: 320px) {
-  .mb-3 {
-    width: 50% !important;
-  }
-}
-
-.btn-secondary:hover {
-  border-color: #0099fa !important;
-  color: #0099fa !important;
+.ima .card-text {
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
 }

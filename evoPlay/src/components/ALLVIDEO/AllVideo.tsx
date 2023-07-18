@@ -6,7 +6,15 @@ const AllVideo = () => {
   return (
     <div className="container-fluid">
       <nav className="nav d-flex flex-nowrap overflow-auto justify-content-between">
-        <a className="nav-link checked" href="#">
+        <a
+          className="nav-link active"
+          href="#"
+          style={{
+            backgroundColor: " rgba(136, 139, 141, 0.1)",
+            color: "#0099fa",
+            borderRadius: "12px",
+          }}
+        >
           ALL
         </a>
         <a className="nav-link" href="#">

@@ -319,16 +319,13 @@ const Footer = () => {
                       }
                     `}
                       </style>
-                      <div
-                        id="apg-20704af1-2ab9-42e5-a415-7b7d8a1f677c"
-                        data-apg-seal-id="20704af1-2ab9-42e5-a415-7b7d8a1f677c"
-                        data-apg-image-size="128"
-                        data-apg-image-type="basic-small"
-                      ></div>
-                      <script
-                        type="text/javascript"
-                        src="https://20704af1-2ab9-42e5-a415-7b7d8a1f677c.snippet.antillephone.com/apg-seal.js"
-                      ></script>
+                      <a target="_blank" href="https://evoplay.games/iso13">
+                        <img
+                          style={{ width: "100%" }}
+                          src="https://20704af1-2ab9-42e5-a415-7b7d8a1f677c.snippet.antillephone.com/sealassets/61c9371f0a62785820e24e7a6d442c4a-evoplay.games-cc81f3360fce83eb803d6fa851045874713eca3cc300fdf81e3162f68c03be0ded34b728833953659ff7875a1924b90b-c2VhbC5wbmc%3D?status=valid"
+                          alt=""
+                        />
+                      </a>
                     </div>
                   </div>
                   <div className="col-6">
