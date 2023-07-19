@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./cards.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Cards: React.FC = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
   useEffect(() => {
     const metaTag = document.createElement("meta");
     metaTag.name = "viewport";
@@ -17,348 +15,215 @@ const Cards: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   const imageUrls = [
-    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg", // Add more image URLs as needed
-    // ...
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
   ];
 
-  const repeatArray = (array: any[], times: number) => {
-    const repeatedArray: any[] = [];
-    for (let i = 0; i < times; i++) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      repeatedArray.push(...array);
-    }
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return repeatedArray;
-  };
+  const grid = [];
 
-  const repeatedImageUrls = repeatArray(imageUrls, 40);
-
-  const isMobileView = windowWidth < 768;
-
-  return (
-    <Container>
-      {isMobileView ? (
-        <Row className="grid-row">
-          {repeatedImageUrls.map((imageUrl, index) => (
-            <Col key={index} xs={6} sm={6} md={4} lg={3}>
-              <div className="image-container">
-                <img
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                  src={imageUrl}
-                  alt={`Image ${index + 1}`}
-                  className="img-fluid"
-                  style={{ margin: "5px" }}
-                />
-                <div className="overlay">
-                  <div className="game-name">GAMES</div>
-                  <button className="btn btn-primary">Play Now</button>
-                  <button className="btn btn-secondary">Game Info</button>
-                </div>
+  for (let i = 0; i < 5; i++) {
+    if (i % 2 === 0) {
+      grid.push(
+        <div className="row grid-row" key={i}>
+          <div className="col-lg-6 col-sm-6 mb-3">
+            <div className="image-container">
+              <img
+                src={imageUrls[i % imageUrls.length]}
+                alt={`Image ${i + 1}`}
+                className="img-fluid"
+              />
+              <div className="overlay">
+                <div className="game-name">GAMES</div>
+                <button className="btn btn-primary">Play Now</button>
+                <Link to="/oneGames" className="btn btn-secondary">
+                  GAME INFO
+                </Link>
               </div>
-            </Col>
-          ))}
-        </Row>
-      ) : (
-        <>
-          <Row className="grid-row">
-            <Col xs={6} sm={6} md={6} lg={6}>
-              <div className="image-container">
-                <img
-                  src={imageUrls[0]}
-                  alt="Image 1"
-                  className="img-fluid"
-                  style={{ margin: "5px" }}
-                />
-                <div className="overlay">
-                  <div className="game-name">GAMES</div>
-                  <button className="btn btn-primary">Play Now</button>
-                  <button className="btn btn-secondary">Game Info</button>
-                </div>
-              </div>
-            </Col>
-            <Col xs={6} sm={6} md={6} lg={6}>
-              <Row>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-
-          <Row className="grid-row">
-            <Col xs={6} sm={6} md={6} lg={6}>
-              <Row>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-            <Col xs={6} sm={6} md={6} lg={6}>
-              <div className="image-container">
-                <img
-                  src={imageUrls[0]}
-                  alt="Image 1"
-                  className="img-fluid"
-                  style={{ margin: "5px" }}
-                />
-                <div className="overlay">
-                  <div className="game-name">GAMES</div>
-                  <button className="btn btn-primary">Play Now</button>
-                  <button className="btn btn-secondary">Game Info</button>
-                </div>
-              </div>
-            </Col>
-          </Row>
-
-          <Row className="grid-row">
-            <Col xs={6} sm={6} md={6} lg={6}>
-              <div className="image-container">
-                <img
-                  src={imageUrls[0]}
-                  alt="Image 1"
-                  className="img-fluid"
-                  style={{ margin: "5px" }}
-                />
-                <div className="overlay">
-                  <div className="game-name">GAMES</div>
-                  <button className="btn btn-primary">Play Now</button>
-                  <button className="btn btn-secondary">Game Info</button>
-                </div>
-              </div>
-            </Col>
-            <Col xs={6} sm={6} md={6} lg={6}>
-              <Row>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-                <Col>
-                  <div className="image-container">
-                    <img
-                      src={imageUrls[0]}
-                      alt="Image 1"
-                      className="img-fluid"
-                      style={{ margin: "5px" }}
-                    />
-                    <div className="overlay">
-                      <div className="game-name">GAMES</div>
-                      <button className="btn btn-primary">Play Now</button>
-                      <button className="btn btn-secondary">Game Info</button>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-
-          <Row className="grid-row">
-            {repeatedImageUrls.map((imageUrl, index) => (
-              <Col key={index} xs={6} sm={6} md={4} lg={3}>
+            </div>
+          </div>
+          <div className="col-lg-6 col-sm-6">
+            <div className="row">
+              <div className="col-lg-6 col-sm-6 mb-3">
                 <div className="image-container">
                   <img
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                    src={imageUrl}
-                    alt={`Image ${index + 1}`}
+                    src={imageUrls[(i + 1) % imageUrls.length]}
+                    alt={`Image ${i + 2}`}
                     className="img-fluid"
-                    style={{ margin: "5px" }}
                   />
                   <div className="overlay">
                     <div className="game-name">GAMES</div>
                     <button className="btn btn-primary">Play Now</button>
-                    <button className="btn btn-secondary">Game Info</button>
+                    <Link to="/oneGames" className="btn btn-secondary">
+                      GAME INFO
+                    </Link>
                   </div>
                 </div>
-              </Col>
-            ))}
-          </Row>
-        </>
-      )}
+              </div>
+              <div className="col-lg-6 col-sm-6 mb-3">
+                <div className="image-container">
+                  <img
+                    src={imageUrls[(i + 2) % imageUrls.length]}
+                    alt={`Image ${i + 3}`}
+                    className="img-fluid"
+                  />
+                  <div className="overlay">
+                    <div className="game-name">GAMES</div>
+                    <button className="btn btn-primary">Play Now</button>
+                    <Link to="/oneGames" className="btn btn-secondary">
+                      GAME INFO
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6 col-sm-6 mb-3">
+                <div className="image-container">
+                  <img
+                    src={imageUrls[(i + 3) % imageUrls.length]}
+                    alt={`Image ${i + 4}`}
+                    className="img-fluid"
+                  />
+                  <div className="overlay">
+                    <div className="game-name">GAMES</div>
+                    <button className="btn btn-primary">Play Now</button>
+                    <Link to="/oneGames" className="btn btn-secondary">
+                      GAME INFO
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6 col-sm-6 mb-3">
+                <div className="image-container">
+                  <img
+                    src={imageUrls[(i + 4) % imageUrls.length]}
+                    alt={`Image ${i + 5}`}
+                    className="img-fluid"
+                  />
+                  <div className="overlay">
+                    <div className="game-name">GAMES</div>
+                    <button className="btn btn-primary">Play Now</button>
+                    <Link to="/oneGames" className="btn btn-secondary">
+                      GAME INFO
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      grid.push(
+        <div className="row grid-row" key={i}>
+          <div className="col-lg-6 col-sm-6">
+            <div className="row">
+              <div className="col-lg-6 col-sm-6 mb-3">
+                <div className="image-container">
+                  <img
+                    src={imageUrls[i % imageUrls.length]}
+                    alt={`Image ${i + 1}`}
+                    className="img-fluid"
+                  />
+                  <div className="overlay">
+                    <div className="game-name">GAMES</div>
+                    <button className="btn btn-primary">Play Now</button>
+                    <Link to="/oneGames" className="btn btn-secondary">
+                      GAME INFO
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6 col-sm-6 mb-3">
+                <div className="image-container">
+                  <img
+                    src={imageUrls[(i + 1) % imageUrls.length]}
+                    alt={`Image ${i + 2}`}
+                    className="img-fluid"
+                  />
+                  <div className="overlay">
+                    <div className="game-name">GAMES</div>
+                    <button className="btn btn-primary">Play Now</button>
+                    <Link to="/oneGames" className="btn btn-secondary">
+                      GAME INFO
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6 col-sm-6 mb-3">
+                <div className="image-container">
+                  <img
+                    src={imageUrls[(i + 2) % imageUrls.length]}
+                    alt={`Image ${i + 3}`}
+                    className="img-fluid"
+                  />
+                  <div className="overlay">
+                    <div className="game-name">GAMES</div>
+                    <button className="btn btn-primary">Play Now</button>
+                    <Link to="/oneGames" className="btn btn-secondary">
+                      GAME INFO
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6 col-sm-6 mb-3">
+                <div className="image-container">
+                  <img
+                    src={imageUrls[(i + 3) % imageUrls.length]}
+                    alt={`Image ${i + 4}`}
+                    className="img-fluid"
+                  />
+                  <div className="overlay">
+                    <div className="game-name">GAMES</div>
+                    <button className="btn btn-primary">Play Now</button>
+                    <Link to="/oneGames" className="btn btn-secondary">
+                      GAME INFO
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-6 col-sm-6 mb-3">
+            <div className="image-container">
+              <img
+                src={imageUrls[(i + 4) % imageUrls.length]}
+                alt={`Image ${i + 5}`}
+                className="img-fluid"
+              />
+              <div className="overlay">
+                <div className="game-name">GAMES</div>
+                <button className="btn btn-primary">Play Now</button>
+                <Link to="/oneGames" className="btn btn-secondary">
+                  GAME INFO
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  return (
+    <div className="container">
+      {grid}
 
       <div className="d-flex justify-content-center">
         <div
           className="card mb-3"
           style={{
-            maxWidth: "800px",
+            maxWidth: "540px",
             margin: "20px",
             backgroundColor: "whitesmoke",
           }}
         ></div>
       </div>
-    </Container>
+      <br />
+
+      <br />
+    </div>
   );
 };
 

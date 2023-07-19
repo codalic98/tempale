@@ -10,8 +10,11 @@
   height: 87px !important;
   font-size: 14px;
   font-weight: 300;
+  padding: 0;
+  margin: 0;
   box-shadow: 0px 0.5px 10px rgba(0, 0, 0, 0.1) !important;
   background-color: white !important;
+  z-index: 1;
 }
 
 .navbar-content {
@@ -26,11 +29,6 @@
 }
 
 .navbar-toggler {
-  display: block !important;
-}
-
-.navbar-toggler {
-  display: block !important;
   height: 70px;
   color: white !important;
   background-color: #0099fa !important;
@@ -60,7 +58,6 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px;
   background-color: white;
   box-shadow: 0px 0.5px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;

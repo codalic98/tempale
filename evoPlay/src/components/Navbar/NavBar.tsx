@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./navbar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -7,16 +6,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-
+import { Link } from "react-router-dom";
 const NavBar: React.FC = () => {
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
-  const [showNewDiv, setShowNewDiv] = useState(false);
-  const handleToggleOffcanvas = () => {
-    setShowOffcanvas((prevState) => !prevState);
-  };
-  const handleToggleOffcanvasNewDiv = () => {
-    setShowNewDiv((prevStateDiv) => !prevStateDiv);
-  };
   return (
     <>
       {["lg"].map((expand) => (
@@ -28,16 +19,13 @@ const NavBar: React.FC = () => {
         >
           <Container>
             <Navbar.Brand href="#">
-              <div className="navbar-content ">
-                <img
-                  src="https://evoplay.games/wp-content/themes/evoplay/assets/img/logo.svg"
-                  alt=""
-                />
-              </div>
+              <img
+                src="https://evoplay.games/wp-content/themes/evoplay/assets/img/logo.svg"
+                alt=""
+              />
             </Navbar.Brand>
             <Navbar.Offcanvas
-              show={showOffcanvas}
-              onHide={() => setShowOffcanvas(false)}
+              id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
             >
@@ -74,10 +62,7 @@ const NavBar: React.FC = () => {
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
-            <Navbar.Toggle
-              aria-controls={`offcanvasNavbar-expand-${expand}`}
-              onClick={handleToggleOffcanvas}
-            />
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
           </Container>
         </Navbar>
       ))}
