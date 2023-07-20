@@ -13,8 +13,8 @@
     right: 0;
     bottom: 0;
     background-image: url("https://evoplay.games/wp-content/uploads/2021/03/Penalty-Shoot-out-1.jpg");
-    filter: blur(8px);
     -webkit-filter: blur(8px);
+    filter: blur(8px);
     background-size: cover;
 }
 

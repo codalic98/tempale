@@ -1,18 +1,54 @@
+import React, { useState, useEffect } from "react";
 import "./description.css";
 import Carousel from "react-bootstrap/Carousel";
 
 const Description: React.FC = () => {
   const images = [
-    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
-    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg", // Add other image URLs here
-    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
-    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
-    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
+    "https://evoplay.games/wp-content/uploads/2021/03/1-27.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/3-23.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/3-23.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/4-10.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/1-27.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/3-23.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/3-23.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/4-10.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/1-27.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/3-23.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/3-23.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/4-10.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/1-27.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/3-23.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/3-23.png",
+    "https://evoplay.games/wp-content/uploads/2021/03/4-10.png",
     // ...
   ];
-  const isDesktop = window.innerWidth >= 768;
-  const numberOfImages = isDesktop ? 5 : 2;
-  const carouselImages = images.slice(0, numberOfImages);
+
+  // State to hold the number of images per slide
+  const [numberOfImagesPerSlide, setNumberOfImagesPerSlide] = useState(2);
+
+  // Function to update the number of images per slide based on screen width
+  const updateNumberOfImagesPerSlide = () => {
+    const isDesktop = window.innerWidth;
+
+    if (isDesktop <= 900) setNumberOfImagesPerSlide(isDesktop ? 2 : 1);
+    if (isDesktop >= 1000) setNumberOfImagesPerSlide(isDesktop ? 3 : 1);
+    if (isDesktop >= 1223) setNumberOfImagesPerSlide(isDesktop ? 4 : 1);
+  };
+
+  useEffect(() => {
+    // Add event listener to update the number of images per slide on window resize
+    window.addEventListener("resize", updateNumberOfImagesPerSlide);
+
+    // Call the function once on component mount to set the initial value
+    updateNumberOfImagesPerSlide();
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateNumberOfImagesPerSlide);
+    };
+  }, []);
+
+  const carouselImages = images.slice(0, numberOfImagesPerSlide);
 
   return (
     <section className="section-padding section-desc-game">
@@ -22,7 +58,7 @@ const Description: React.FC = () => {
           <div className="desc-video-col desc-video-inner">
             <div className="desc-video-size">
               <img
-                src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
+                src="https://evoplay.games/wp-content/uploads/2021/03/PenaltyShootOut_270x270.jpg"
                 alt=""
               />
             </div>
@@ -32,7 +68,7 @@ const Description: React.FC = () => {
             <p>
               Do you like to play soccer? Are you the terror of your rivals? Or
               maybe you are an avid fan of your favorite football team? In any
-              case, this game will satisfy both of thesepassions.
+              case, this game will satisfy both of these passions.
             </p>
             <p>
               Penalty shoot-out is a dynamic gambling instant game where you
@@ -54,21 +90,32 @@ const Description: React.FC = () => {
         </div>
       </div>
       <div className="container">
-        {" "}
         <Carousel data-bs-theme="dark" controls={false}>
-          {carouselImages.map((image, index) => (
+          {/* Loop through images in groups of numberOfImagesPerSlide */}
+          {carouselImages.map((_, index) => (
             <Carousel.Item key={index}>
-              <img
-                src={image}
-                alt=""
-                style={{ width: "100px" }}
-                className="imgSlide"
-              />{" "}
+              <div className="carousel-image-group">
+                {images
+                  .slice(
+                    index * numberOfImagesPerSlide,
+                    (index + 1) * numberOfImagesPerSlide
+                  )
+                  .map((image, idx) => (
+                    <img
+                      key={idx}
+                      src={image}
+                      alt=""
+                      style={{
+                        width: `calc(100% / ${numberOfImagesPerSlide})`,
+                      }} // Adjust width based on the number of images per slide
+                      className="imgSlide"
+                    />
+                  ))}
+              </div>
             </Carousel.Item>
           ))}
         </Carousel>
       </div>
-
       <div className="container">
         <div className="game-links-row">
           <div className="product-row row">

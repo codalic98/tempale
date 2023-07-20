@@ -1,5 +1,4 @@
 import "./similar.css";
-import Carousel from "react-bootstrap/Carousel";
 
 const SimilarGame: React.FC = () => {
   return (
@@ -23,7 +22,7 @@ const SimilarGame: React.FC = () => {
               <a href="#" className="game-box-link">
                 <span className="similar-thumb-cropper">
                   <img
-                    src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
+                    src="https://evoplay.games/wp-content/uploads/2021/03/PenaltyShootOut_270x270.jpg"
                     alt=""
                   />
                 </span>
@@ -38,7 +37,7 @@ const SimilarGame: React.FC = () => {
               <a href="#" className="game-box-link">
                 <span className="similar-thumb-cropper">
                   <img
-                    src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
+                    src="https://evoplay.games/wp-content/uploads/2021/03/PenaltyShootOut_270x270.jpg"
                     alt=""
                   />
                 </span>

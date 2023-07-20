@@ -12,10 +12,11 @@ const ThreeMiddle = () => {
   return (
     <MDBCard style={{ maxWidth: "100%" }}>
       <MDBRow className="g-0" style={{ backgroundColor: "#fafafa" }}>
-        <MDBCol md="3">
+        <MDBCol md="3" style={{ textAlign: "center" }}>
           <MDBCardImage
             src="https://evoplay.games/wp-content/uploads/2023/06/Icons-Seo_02.png"
             alt="..."
+            style={{ maxWidth: "65%" }}
             fluid
           />
         </MDBCol>
@@ -44,19 +45,21 @@ const ThreeMiddle = () => {
             </MDBCardText>
           </MDBCardBody>
         </MDBCol>
-        <MDBCol md="3">
+        <MDBCol md="3" style={{ textAlign: "center" }}>
           <MDBCardImage
             src="https://evoplay.games/wp-content/uploads/2023/06/Icons-Seo_08.png"
+            style={{ maxWidth: "65%" }}
             alt="..."
             fluid
           />
         </MDBCol>
       </MDBRow>
       <MDBRow className="g-0" style={{ backgroundColor: "#fafafa" }}>
-        <MDBCol md="3">
+        <MDBCol md="3" style={{ textAlign: "center" }}>
           <MDBCardImage
             src="https://evoplay.games/wp-content/uploads/2023/06/Icons-Seo_06.png"
             alt="..."
+            style={{ width: "65%" }}
             fluid
           />
         </MDBCol>
