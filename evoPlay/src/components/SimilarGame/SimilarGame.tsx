@@ -1,4 +1,6 @@
 import "./similar.css";
+import Carousel from "react-bootstrap/Carousel";
+
 const SimilarGame: React.FC = () => {
   return (
     <section className="section-padding">
@@ -14,7 +16,7 @@ const SimilarGame: React.FC = () => {
         <div className="swiper-container js-similar-slider">
           <div className="similar-games-wrapper swiper-wrapper">
             <div
-              className="similar-game-item swiper-slide swiper-slide-activr"
+              className="similar-game-item swiper-slide swiper-slide-active"
               role="group"
               aria-label="1/2"
             >

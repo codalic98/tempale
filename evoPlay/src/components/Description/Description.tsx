@@ -1,5 +1,19 @@
 import "./description.css";
+import Carousel from "react-bootstrap/Carousel";
+
 const Description: React.FC = () => {
+  const images = [
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg", // Add other image URLs here
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
+    "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg",
+    // ...
+  ];
+  const isDesktop = window.innerWidth >= 768;
+  const numberOfImages = isDesktop ? 5 : 2;
+  const carouselImages = images.slice(0, numberOfImages);
+
   return (
     <section className="section-padding section-desc-game">
       <div className="container">
@@ -39,139 +53,38 @@ const Description: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <div className="container container-fluid-xs">
-        <div
-          className="game-img-wrapper js-gallery-slider swiper-container swiper-container-initialized swiper-container-horizontal"
-          id="js-gallery-slider"
-        >
-          <div
-            className="game-img-slider swiper-wrapper"
-            aria-live="off"
-            style={{
-              transition: " all 0ms ease 0s",
-              transform: "translate3d(72.3333px, 0px, 0px)",
-            }}
-          >
-            <div
-              className="swiper-slide game-img-slide swiper-slide-duplicate swiper-slide-active"
-              data-swiper-slide-index="2"
-              role="group"
-              aria-label="1/4"
-            >
-              <a
-                href="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
-                className="magnific-popup"
-              >
-                <img
-                  src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div
-              className="swiper-slide game-img-slide swiper-slide-duplicate swiper-slide-next"
-              data-swiper-slide-index="3"
-              role="group"
-              aria-label="2/4"
-            >
-              <a
-                href="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
-                className="magnific-popup"
-              >
-                <img
-                  src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div
-              className="swiper-slide game-img-slide"
-              data-swiper-slide-index="0"
-              role="group"
-              aria-label="3/4"
-            >
-              <a
-                href="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
-                className="magnific-popup"
-              >
-                <img
-                  src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div
-              className="swiper-slide game-img-slide swiper-slide-duplicate-prev"
-              data-swiper-slide-index="1"
-              role="group"
-              aria-label="4/4"
-            >
-              <a
-                href="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
-                className="magnific-popup"
-              >
-                <img
-                  src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_960,c_limit/100-best-games-hp-b.jpg"
-                  alt=""
-                />
-              </a>
-            </div>
-            <span
-              className="swiper-notification"
-              aria-live="assertive"
-              aria-atomic="true"
-            ></span>
-          </div>
-        </div>
-        <div className="pagination-game-wrapper">
-          <div className="swiper-pagination pagination-game-img swiper-pagination-clickable swiper-pagination-bullets">
-            <span
-              className="swiper-pagination-bullet"
-              tabIndex={0}
-              role="button"
-              area-label="Go to slide 1"
-            ></span>
-            <span
-              className="swiper-pagination-bullet"
-              tabIndex={0}
-              role="button"
-              area-label="Go to slide 2"
-            ></span>
-            <span
-              className="swiper-pagination-bullete"
-              tabIndex={0}
-              role="button"
-              area-label="Go to slide 3"
-            ></span>
-            <span
-              className="swiper-pagination-bullet"
-              tabIndex={0}
-              role="button"
-              area-label="Go to slide 4"
-            ></span>
-          </div>
-        </div>
+      <div className="container">
+        {" "}
+        <Carousel data-bs-theme="dark" controls={false}>
+          {carouselImages.map((image, index) => (
+            <Carousel.Item key={index}>
+              <img
+                src={image}
+                alt=""
+                style={{ width: "100px" }}
+                className="imgSlide"
+              />{" "}
+            </Carousel.Item>
+          ))}
+        </Carousel>
       </div>
+
       <div className="container">
         <div className="game-links-row">
           <div className="product-row row">
-            <div className="product-col-2">
-              <a href="" className="btn-blue-xl-ico btn" target="_blank">
-                <span className="txt">
-                  Product
-                  <br /> sheet
-                </span>
-              </a>
-            </div>
-            <div className="product-col-2">
-              <a href="" className="btn-blue-xl-ico btn" target="_blank">
-                <span className="txt">
-                  Promotion
-                  <br /> pack
-                </span>
-              </a>
-            </div>
+            <a href="" className="btn-blue-xl-ico btn" target="_blank">
+              <span className="txt">
+                Product
+                <br /> sheet
+              </span>
+            </a>
+
+            <a href="" className="btn-blue-xl-ico btn" target="_blank">
+              <span className="txt">
+                Promotion
+                <br /> pack
+              </span>
+            </a>
           </div>
         </div>
       </div>
