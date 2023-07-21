@@ -159,7 +159,6 @@ h4 {
   .game-name {
     /* Adjust game name styles for better positioning */
     position: relative;
-    bottom: 40px;
   }
   .col-lg-6 .col-sm-6 {
     width: 50%;

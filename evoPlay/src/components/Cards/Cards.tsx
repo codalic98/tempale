@@ -113,10 +113,15 @@ const Cards: React.FC = () => {
                       backgroundColor: "#0099fa !important",
                     }}
                     className="btn btn-secondary"
+                    id="cardButton"
                   >
                     Play Now
                   </button>
-                  <Link to="/oneGames" className="btn btn-secondary">
+                  <Link
+                    to="/oneGames"
+                    className="btn btn-secondary"
+                    id="cardButton"
+                  >
                     GAME INFO
                   </Link>
                 </div>

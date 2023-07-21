@@ -33,7 +33,6 @@
   .game-name {
     /* Adjust game name styles for better positioning */
     position: relative;
-    bottom: 40px;
   }
   .col-lg-6 .col-sm-6 {
     width: 50%;
@@ -82,6 +81,12 @@ img {
   justify-content: center;
   align-items: center;
   transition: opacity 0.3s ease;
+}
+
+@media (max-width: 478px) {
+  #cardButton {
+    font-size: 10px;
+  }
 }
 
 .game-name {
