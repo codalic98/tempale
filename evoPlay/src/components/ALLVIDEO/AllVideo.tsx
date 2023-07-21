@@ -47,7 +47,7 @@ const AllVideo = () => {
         </Form>
       </nav>
       <Form className="d-flex">
-        <Col className="d-flex d-md-none">
+        <Col className="d-flex d-md-none" style={{ marginTop: "9px" }}>
           <Form.Control
             type="search"
             placeholder="Search"

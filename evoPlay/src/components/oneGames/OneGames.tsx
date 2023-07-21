@@ -82,7 +82,9 @@ const OneGames: React.FC = () => {
                       >
                         RELEASE DATE
                       </div>
-                      <div className="content">05.2020.</div>
+                      <div className="content" style={{ paddingTop: "10px" }}>
+                        05.2020.
+                      </div>
                     </div>
                     <div className="game-info-row">
                       <div
@@ -283,7 +285,9 @@ const OneGames: React.FC = () => {
                       >
                         RELEASE DATE
                       </div>
-                      <div className="content">05.2020.</div>
+                      <div className="content" style={{ paddingTop: "10px" }}>
+                        05.2020.
+                      </div>
                     </div>
                     <div className="game-info-row">
                       <div
