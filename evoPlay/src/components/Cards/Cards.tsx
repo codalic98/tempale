@@ -74,6 +74,7 @@ const Cards: React.FC = () => {
                       <div className="game-name">GAMES</div>
                       <button
                         className="btn btn-secondary"
+                        id="cardButton"
                         style={{
                           marginBottom: "10px",
                           backgroundColor: "#0099fa !important",
@@ -81,7 +82,11 @@ const Cards: React.FC = () => {
                       >
                         Play Now
                       </button>
-                      <Link to="/oneGames" className="btn btn-secondary">
+                      <Link
+                        to="/oneGames"
+                        className="btn btn-secondary"
+                        id="cardButton"
+                      >
                         GAME INFO
                       </Link>
                     </div>
